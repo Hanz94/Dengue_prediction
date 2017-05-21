@@ -7,7 +7,7 @@ combined <- cbind(subset( df, select = -c(city, weekofyear,year ) ),lables)
 
 Find_Max_CCF<- function(a,b) 
 { 
-  d <- ccf(a, b, plot = FALSE, lag.max=8, na.action = na.contiguous) 
+  d <- ccf(a, b, plot = FALSE, lag.max=4, na.action = na.contiguous) 
   cor = d$acf[,,1] 
   lag = d$lag[,,1] 
   res = data.frame(cor,lag) 
