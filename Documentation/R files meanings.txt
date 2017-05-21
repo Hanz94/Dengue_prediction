@@ -1,0 +1,6 @@
+Zero_submission			Use 5 attributes for both cities
+Frist_submission		Use 4 best attributes for both cities
+Second_submission		Use seperate model for 2 cities through distinct attribute sets 6 for sj and 4 for iq
+Third_submission		Use seperate model for 2 cities through distinct attribute sets 4 for sj and 4 for iq and missforrest to fill missing values.
+ttt				test miss forest
+cc_calculation			Cross corelation calculation for time series analysis
