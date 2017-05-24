@@ -13,7 +13,7 @@ summary(iris.imp)
 
 
 # load data 
-df <- read.csv("G:/S7/Data Mining/Dengue/dengue_features_train.csv")
+df <- read.csv("G:/S7/Data Mining/Dengue/Data/dengue_features_train.csv")
 
 # features we want
 features = c("reanalysis_specific_humidity_g_per_kg",

@@ -13,7 +13,8 @@ preprocessData <- function(data_path, labels_path = NULL)
                "station_min_temp_c",
                "reanalysis_min_air_temp_k",
                "station_max_temp_c",
-               "reanalysis_max_air_temp_k")
+               "reanalysis_max_air_temp_k",
+               "ndvi_ne")
   
   # add city if labels data aren't provided
   if (is.null(labels_path)) features %<>% c("city", "year", "weekofyear")
@@ -54,7 +55,8 @@ get_bst_model_for_sj <- function(train, test)
   reanalysis_specific_humidity_g_per_kg +
   reanalysis_dew_point_temp_k + 
   station_avg_temp_c +
-  reanalysis_max_air_temp_k"
+  reanalysis_max_air_temp_k +
+  ndvi_ne"
   
   grid = 10 ^(seq(-8, -3,1))
   
@@ -134,13 +136,15 @@ Time_Series_Lags_for_sj <- function(sj_train_set)
   sj_train_set$reanalysis_dew_point_temp_k %<>% lag(., 7) 
   sj_train_set$station_avg_temp_c %<>% lag(., 8) 
   sj_train_set$reanalysis_max_air_temp_k %<>% lag(., 6)
+  sj_train_set$ndvi_ne %<>% lag(., 5)
   features = c("reanalysis_specific_humidity_g_per_kg",
                "reanalysis_dew_point_temp_k",
                "station_avg_temp_c",
                "station_min_temp_c",
                "reanalysis_min_air_temp_k",
                "station_max_temp_c",
-               "reanalysis_max_air_temp_k")
+               "reanalysis_max_air_temp_k",
+               "ndvi_ne")
   sj_train_set[features] %<>% na.locf(fromLast = TRUE) 
   return(sj_train_set)
 }
@@ -219,6 +223,6 @@ inner_join(submissions, rbind(sj_test,iq_test)) %>%
   predictions
 
 predictions$total_cases %<>% round()
-write.csv(predictions, 'G:/S7/Data Mining/Dengue/Submissions/predictions_with_lags_best.csv', row.names = FALSE)
+write.csv(predictions, 'G:/S7/Data Mining/Dengue/Submissions/predictions_with_lags_new_features.csv', row.names = FALSE)
 
 
