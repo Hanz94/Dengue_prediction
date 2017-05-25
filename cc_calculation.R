@@ -2,12 +2,13 @@ df <- read.csv("G:/S7/Data Mining/Dengue/Data/dengue_features_train.csv")
 lables <- read.csv("G:/S7/Data Mining/Dengue/Data/dengue_labels_train.csv")
 library(ggplot2)
 library(missForest)
+library(corrgram)
 
 combined <- cbind(subset( df, select = -c(city, weekofyear,year ) ),lables)
 
 Find_Max_CCF<- function(a,b) 
 { 
-  d <- ccf(a, b, plot = FALSE, lag.max=10, na.action = na.contiguous) 
+  d <- ccf(a, b, plot = FALSE, lag.max=8, na.action = na.contiguous) 
   cor = d$acf[,,1] 
   lag = d$lag[,,1] 
   res = data.frame(cor,lag) 
@@ -50,6 +51,18 @@ Get_Best_lag<- function(city,attri)
   return(alldata)
 }
 
+corelation_analysis <- function(df_for_lag, lag_parmeters){
+  i = 1
+  for(i in 1:nrow(lag_parmeters)) {
+    df_for_lag[,as.character(lag_parmeters[i,][["attri"]])] %<>% lag( ., as.numeric(lag_parmeters[i,][["lag"]]))
+  }
+  i =2
+  df_for_lag %>% 
+    dplyr::select(-city, -year, -weekofyear,-week_start_date) %>%
+  corrgram(., order=TRUE, lower.panel=panel.shade, upper.panel=panel.pie, text.panel=panel.txt,main="Cross corelations")
+  return(df_for_lag)
+}
+
 
 df_sj <- filter(combined, city == 'sj')
 df_iq <- filter(combined, city == 'iq')
@@ -88,6 +101,7 @@ sj_cc_all <- Get_Best_lag("sj",c("ndvi_ne",
 
 sj_cc_all <- sj_cc_all[order(sj_cc_all$acf),]
 print(sj_cc_all)
+df_sj %<>% corelation_analysis(.,sj_cc_all)
 
 ggplot(data=sj_cc_all, aes(x=attri, y=acf, fill=lag)) +
   geom_bar(colour="black", stat="identity", position="dodge")
@@ -117,6 +131,7 @@ iq_cc_all <- Get_Best_lag("iq",c("ndvi_ne",
 
 iq_cc_all <- iq_cc_all[order(iq_cc_all$acf),]
 print(iq_cc_all)
+#df_iq %<>% corelation_analysis(.,iq_cc_all)
 
 ggplot(data=iq_cc_all, aes(x=attri, y=acf, fill=lag)) +
   geom_bar(colour="black", stat="identity", position="dodge")

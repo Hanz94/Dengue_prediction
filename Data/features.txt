@@ -1,0 +1,72 @@
+"ndvi_ne",
+"ndvi_nw",
+"ndvi_se",
+"ndvi_sw",
+"precipitation_amt_mm",	
+"reanalysis_air_temp_k",
+"reanalysis_avg_temp_k",
+"reanalysis_dew_point_temp_k",
+"reanalysis_max_air_temp_k",
+"reanalysis_min_air_temp_k",
+"reanalysis_precip_amt_kg_per_m2",
+"reanalysis_relative_humidity_percent",
+"reanalysis_sat_precip_amt_mm",
+"reanalysis_specific_humidity_g_per_kg",
+"reanalysis_tdtr_k",
+"station_avg_temp_c",
+"station_diur_temp_rng_c",
+"station_max_temp_c",
+"station_min_temp_c",
+"station_precip_mm"
+
+With Max lag = 10
+
+SR
+
+                                   attri         acf lag
+2                                ndvi_nw -0.26187689  10
+4                                ndvi_sw -0.01969575   1
+12  reanalysis_relative_humidity_percent  0.02609425   2
+17               station_diur_temp_rng_c  0.02949668   0
+15                     reanalysis_tdtr_k  0.03235110   5
+20                     station_precip_mm  0.04252384   0
+11       reanalysis_precip_amt_kg_per_m2  0.05416147   2
+3                                ndvi_se  0.06382515   1
+5                   precipitation_amt_mm  0.07073127   2
+13          reanalysis_sat_precip_amt_mm  0.07073127   2
+
+14 reanalysis_specific_humidity_g_per_kg  0.22816852   7
+8            reanalysis_dew_point_temp_k  0.23416077   7
+18                    station_max_temp_c  0.30466630   6
+10             reanalysis_min_air_temp_k  0.32249141   7
+9              reanalysis_max_air_temp_k  0.33644240   6
+6                  reanalysis_air_temp_k  0.34397955   7
+7                  reanalysis_avg_temp_k  0.34571264  10
+16                    station_avg_temp_c  0.36375942  10
+1                                ndvi_ne  0.38149778   5
+19                    station_min_temp_c  0.38468721  10
+
+IQ
+
+                                   attri        acf lag
+20                     station_precip_mm 0.03768165   4
+15                     reanalysis_tdtr_k 0.05204817  10
+3                                ndvi_se 0.08794654  10
+1                                ndvi_ne 0.10401431  10
+18                    station_max_temp_c 0.12574721   6
+4                                ndvi_sw 0.12794787  10
+12  reanalysis_relative_humidity_percent 0.12917483   0
+2                                ndvi_nw 0.13317008  10
+9              reanalysis_max_air_temp_k 0.16740962   9
+5                   precipitation_amt_mm 0.17320052   3
+13          reanalysis_sat_precip_amt_mm 0.17320052   3
+19                    station_min_temp_c 0.18565191   0
+
+7                  reanalysis_avg_temp_k 0.20341813   9
+6                  reanalysis_air_temp_k 0.20413974   9
+11       reanalysis_precip_amt_kg_per_m2 0.22076810   2
+8            reanalysis_dew_point_temp_k 0.22388462   2
+14 reanalysis_specific_humidity_g_per_kg 0.22887538   2
+10             reanalysis_min_air_temp_k 0.24982405   5
+17               station_diur_temp_rng_c 0.26404932   9
+16                    station_avg_temp_c 0.30116791   9
