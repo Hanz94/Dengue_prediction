@@ -70,3 +70,54 @@ IQ
 10             reanalysis_min_air_temp_k 0.24982405   5
 17               station_diur_temp_rng_c 0.26404932   9
 16                    station_avg_temp_c 0.30116791   9
+
+Max Lag 8
+
+SJ
+
+attri         acf lag
+2                                ndvi_nw -0.27827873   1
+4                                ndvi_sw -0.01969575   1
+12  reanalysis_relative_humidity_percent  0.02609425   2
+17               station_diur_temp_rng_c  0.02949668   0
+15                     reanalysis_tdtr_k  0.03235110   5
+20                     station_precip_mm  0.04252384   0
+11       reanalysis_precip_amt_kg_per_m2  0.05416147   2
+3                                ndvi_se  0.06382515   1
+5                   precipitation_amt_mm  0.07073127   2
+13          reanalysis_sat_precip_amt_mm  0.07073127   2
+
+14 reanalysis_specific_humidity_g_per_kg  0.22816852   7
+	8            reanalysis_dew_point_temp_k  0.23416077   7
+18                    station_max_temp_c  0.30466630   6
+	10             reanalysis_min_air_temp_k  0.32249141   7
+9              reanalysis_max_air_temp_k  0.33644240   6
+	6                  reanalysis_air_temp_k  0.34397955   7
+7                  reanalysis_avg_temp_k  0.34504827   7
+	16                    station_avg_temp_c  0.35369330   8
+19                    station_min_temp_c  0.37160694   8
+1                                ndvi_ne  0.38149778   5
+
+IQ
+                                   attri          acf lag
+15                     reanalysis_tdtr_k -0.001227602   8
+20                     station_precip_mm  0.037681653   4
+3                                ndvi_se  0.052984102   8
+1                                ndvi_ne  0.078927733   8
+2                                ndvi_nw  0.094325578   8
+4                                ndvi_sw  0.105167175   8
+17               station_diur_temp_rng_c  0.124438586   8
+18                    station_max_temp_c  0.125747210   6
+12  reanalysis_relative_humidity_percent  0.129174830   0
+9              reanalysis_max_air_temp_k  0.139760342   8
+7                  reanalysis_avg_temp_k  0.162614632   8
+5                   precipitation_amt_mm  0.173200516   3
+13          reanalysis_sat_precip_amt_mm  0.173200516   3
+6                  reanalysis_air_temp_k  0.175420372   8
+19                    station_min_temp_c  0.185651909   0
+
+11       reanalysis_precip_amt_kg_per_m2  0.220768097   2
+	8            reanalysis_dew_point_temp_k  0.223884620   2
+14 reanalysis_specific_humidity_g_per_kg  0.228875376   2
+10             reanalysis_min_air_temp_k  0.249824054   5
+16                    station_avg_temp_c  0.300575970   4
